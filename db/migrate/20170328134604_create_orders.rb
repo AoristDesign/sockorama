@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[5.0]
     create_table :orders do |t|
       t.string :status
       t.string :notes
-      t.string :promo
+      t.string :coupon
       t.references :users, foreign_key: true
 
       t.timestamps
