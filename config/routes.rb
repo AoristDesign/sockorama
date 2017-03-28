@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :pages
+  resources :messages
   resources :admins
   resources :orders
   resources :materials
