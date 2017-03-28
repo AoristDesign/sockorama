@@ -82,6 +82,10 @@ header {
     padding: 10px;
 }
 
+.card img {
+    padding-bottom: 10px;
+}
+
 footer {
     background-color: #3E000C;
     padding: 30px;

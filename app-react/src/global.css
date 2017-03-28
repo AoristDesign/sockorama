@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+}
+img {
+    height: 300px;
+    width: 325px;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    /*background: url("http://unsplash.it/800/?image=1021");
+    background-size: cover;*/
+}
+
+nav {
+    padding: 10px;
+    font-size: 16px;
+    background-color: white;
+}
+
+.nav-right a, .nav-right a:hover {
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-left a, .nav-left a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+header {
+    padding: 60px;
+    color:#3E000C;
+    background-size: cover;
+    background-color: white;
+    font-size: 40px;
+    letter-spacing: 1.4px;
+}
+
+.title {
+    font-size: 75px;
+    letter-spacing: 1.4px;
+    font-weight: 300;
+}
+
+.title-smaller {
+    font-size: 50px;
+    letter-spacing: 1.4px;
+    font-weight: 300;
+    color: #3E000C;
+}
+
+.carousel-cell {
+    padding: 40px;
+    width: 100%;
+    background-color: #3E000C;
+    background-size: cover;
+    color: white;
+    font-size: 50px;
+}
+
+.carousel-cell a, 
+.carousel-cell a:hover {
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    margin-left: 15px;
+}
+
+.card {
+    max-width: 500px;
+    min-height: 280px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0,0,40,0.25);
+    background: #ffffff;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.card img {
+    padding-bottom: 10px;
+}
+
+footer {
+    background-color: #3E000C;
+    padding: 30px;
+    color: white;
+}
+
+.footer-signin {
+    background-color: #3E000C;
+    padding: 85px;
+    color: white;
+}
+
+.panel {
+    margin-top: 30px;
+}
+
+.panel-body button {
+    margin-bottom: 12px;
+    background-color: #3E000C;
+    color: white;
+}
+
+.btn {
+    background-color: #3E000C;
+    color: white;
+}
+
+.about-text {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+form h4 {
+    font-weight: 300;
+}
+
+
