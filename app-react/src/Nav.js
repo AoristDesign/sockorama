@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { browserHistory, Link } from 'react-router'
 
 class Nav extends Component {
     render() {
@@ -7,11 +8,12 @@ class Nav extends Component {
                 <div className="container">
                     <div className="row nav">
                         <div className="col-sm-6 text-left nav-left">
+                            <a href="#" onClick={() => browserHistory.push('/Products')}>SOCKORAMA</a>
                             <a href="#" onClick={() => window.$('#signinModal').modal('toggle')}>Sign In</a>
                         </div>
                         <div className="col-sm-6 text-right nav-right">
-                            <a href="#">About</a>
-                            <a href="#">Cart</a>
+                            <a href="#" onClick={() => browserHistory.push('/About')}>About</a>
+                            <a href="#" onClick={() => browserHistory.push('/Cart')}>Cart</a>
                         </div>
                     </div>
                 </div>

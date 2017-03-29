@@ -4,7 +4,6 @@ import Nav from './Nav'
 class About extends Component {
   render() {
     return ( <div>
-                <Nav/>
                 <div className="row">
             <div className="col-sm-8 col-sm-offset-2 text-center">
                 <h3 className="text-center">About Us</h3>
@@ -18,12 +17,12 @@ class About extends Component {
                     <h4 className="text-center">Want to get in touch? We'd love to hear from you!</h4>
                     <form>
                         <div className="form-group">
-                            <label class="hidden" for="name">Name</label>
-                            <input type="name" class="form-control" id="name" placeholder="Name"/>
+                            <label className="hidden" for="name">Name</label>
+                            <input type="name" className="form-control" id="name" placeholder="Name"/>
                         </div>
                         <div className="form-group">
-                            <label class="hidden" for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Email Address"/>
+                            <label className="hidden" for="email">Email address</label>
+                            <input type="email" className="form-control" id="email" placeholder="Email Address"/>
                         </div>
                         <div className="form-group">
                             <label className="hidden" for="message">Message</label>

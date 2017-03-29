@@ -19,6 +19,10 @@ nav {
     background-color: white;
 }
 
+.nav-left, .nav-right {
+    padding-bottom: 10px;
+}
+
 .nav-right a, .nav-right a:hover {
     margin-left: 20px;
     text-decoration: none;
@@ -26,6 +30,7 @@ nav {
 }
 
 .nav-left a, .nav-left a:hover {
+    margin-left: 20px;    
     text-decoration: none;
     color: black;
 }
@@ -59,6 +64,7 @@ header {
     background-size: cover;
     color: white;
     font-size: 50px;
+    background-size: cover;
 }
 
 .carousel-cell a, 

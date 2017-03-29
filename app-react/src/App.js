@@ -1,60 +1,58 @@
 import React, { Component } from 'react';
-import Nav from './Nav';
-import Cards from './Cards';
+import { browserHistory, Link } from 'react-router'
+
+import FilterAndSearch from './FilterAndSearch'
+import Products from './Products'
+import Nav from './Nav'
 import Search from './Search'
 import Footer from './Footer'
 
-// //Setup
-//     constructor(props) {
-//         super(props)
-//         // if you make a custom method you have to bind it in your constructor
-//         // this.addTodo = this.addTodo.bind(this)
-//         // this.getTodos = this.getTodos.bind(this)
-//         // this.toggleTodoComplete = this.toggleTodoComplete.bind(this)
-
-//         Initial state
-//         this.state = {
-//             cards: []
-//         }
-//     }
-
-// React lifecycle Methods
-// componentWillMount() {
-//     // this.getTodos()
-// }
-
-//API methods
-// getTodos(){
-//     fetch('/api/v1/todos')
-//         .then(response => response.json())
-//         .then(todos => this.props.dispatch({type: 'TODOS_UPDATE', body: todos}))
-// }
-// addTodo(todo) {
-//     this.getTodos()
-//     // let newTodos = this.state.todos
-//     // newTodos.unshift(todo)
-//     // this.setState({todos: newTodos})
-// }
-
-// toggleTodoComplete(todoId, isComplete) {
-//         if (isComplete) {
-//             fetch(`/api/v1/todos/${todoId}/complete`)
-//             .then(this.getTodos)
-//         }
-    
-//         else {
-//             fetch(`/api/v1/todos/${todoId}/incomplete`)
-//             .then(this.getTodos)
-//         }
-//     }
-
 class App extends Component {
+    constructor(props) {
+        super(props)
+        this.getProducts = this.getProducts.bind(this)
+    
+    this.state = {
+        products: []
+    }
+}
+    componentWillMount() {
+        this.getProducts
+    }
+
+    getProducts() {
+        fetch(window.apiHost + '/api/products')
+        .then(response => response.json)
+        .then(response => this.setState({products: response}))
+    }
+
+        filterProducts(term) {
+            let products = this.state.products
+            products = products.filter(function(product) {
+                return product.name.includes(term)
+            })
+
+            this.setState ({
+                products: products
+            })
+        }
+    
+
   render() {
     return <div>
-      <Nav/>
-      <Search />
-      <Cards/>
-      <Footer />
+        <Nav/>
+        <div className="container">
+        {/*<a onClick={() => browserHistory.push('/checkout')}>Checkout</a>
+        <Link to="/checkout">Checkout</Link>
+        <FilterAndSearch filterProducts={this.filterProducts}/> */}
+        <div>
+        {this.props.Products}
+        </div>
+
+
+      {this.props.children}
+      </div>
+      <Footer/>
       </div>
     
   }
