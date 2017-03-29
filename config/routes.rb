@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :inventories
+  resources :sizes
+  resources :pages
+  resources :messages
+  resources :admins
   resources :orders
   resources :materials
   resources :products
