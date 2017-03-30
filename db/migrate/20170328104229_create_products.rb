@@ -13,7 +13,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.boolean :featured, default: false
       t.boolean :promo, default: false
       t.boolean :on_sale, default: false
-      t.integer :before_sale_price_in_cents
+      t.integer :before_sale_price_in_cents, default: 0
 
       t.timestamps
     end

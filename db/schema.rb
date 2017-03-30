@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328195757) do
+ActiveRecord::Schema.define(version: 20170330194125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 20170328195757) do
   end
 
   create_table "materials_products_linkings", force: :cascade do |t|
-    t.integer  "materials_id"
-    t.integer  "products_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["materials_id"], name: "index_materials_products_linkings_on_materials_id", using: :btree
-    t.index ["products_id"], name: "index_materials_products_linkings_on_products_id", using: :btree
+    t.integer  "material_id"
+    t.integer  "product_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["material_id"], name: "index_materials_products_linkings_on_material_id", using: :btree
+    t.index ["product_id"], name: "index_materials_products_linkings_on_product_id", using: :btree
   end
 
   create_table "messages", force: :cascade do |t|
@@ -60,10 +60,10 @@ ActiveRecord::Schema.define(version: 20170328195757) do
   create_table "order_lines", force: :cascade do |t|
     t.integer  "orders_id"
     t.integer  "inventories_id"
-    t.integer  "quantity",                default: 1
-    t.integer  "price_in_cents_at_order",             null: false
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.integer  "quantity",             default: 1
+    t.integer  "price_at_order_cents",             null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.index ["inventories_id"], name: "index_order_lines_on_inventories_id", using: :btree
     t.index ["orders_id"], name: "index_order_lines_on_orders_id", using: :btree
   end
@@ -92,21 +92,21 @@ ActiveRecord::Schema.define(version: 20170328195757) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "model",                                         null: false
+    t.string   "model",                                      null: false
     t.string   "sku"
     t.text     "description"
     t.string   "color"
     t.string   "style"
-    t.string   "genderism",                  default: "unisex"
+    t.string   "genderism",               default: "unisex"
     t.string   "material_description"
-    t.string   "image_url",                                     null: false
-    t.integer  "price_in_cents",                                null: false
-    t.boolean  "featured",                   default: false
-    t.boolean  "promo",                      default: false
-    t.boolean  "on_sale",                    default: false
-    t.integer  "before_sale_price_in_cents"
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.string   "image_url",                                  null: false
+    t.integer  "price_cents",                                null: false
+    t.boolean  "featured",                default: false
+    t.boolean  "promo",                   default: false
+    t.boolean  "on_sale",                 default: false
+    t.integer  "before_sale_price_cents", default: 0
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   create_table "sizes", force: :cascade do |t|
@@ -128,8 +128,8 @@ ActiveRecord::Schema.define(version: 20170328195757) do
 
   add_foreign_key "inventories", "products"
   add_foreign_key "inventories", "sizes"
-  add_foreign_key "materials_products_linkings", "materials", column: "materials_id"
-  add_foreign_key "materials_products_linkings", "products", column: "products_id"
+  add_foreign_key "materials_products_linkings", "materials"
+  add_foreign_key "materials_products_linkings", "products"
   add_foreign_key "order_lines", "inventories", column: "inventories_id"
   add_foreign_key "order_lines", "orders", column: "orders_id"
   add_foreign_key "orders", "users", column: "users_id"

@@ -1,4 +1,4 @@
 class MaterialsProductsLinking < ApplicationRecord
-  belongs_to :materials
-  belongs_to :products
+  belongs_to :material
+  belongs_to :product
 end

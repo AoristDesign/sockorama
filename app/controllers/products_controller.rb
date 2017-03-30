@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
 
   def index
-    # @products = Product.page(params[:page])
     @products = Product.all
     render json: @products
   end
@@ -14,9 +13,9 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.permit(:id, :model, :pattern, :style, :size, :stock,
-                  :price, :image, :materials_description,
-                  :materials_linking, :description)
+    params.permit(:id, :model, :color, :style, :sizes, :inventories,
+                  :price, :image_url, :material_description,
+                  :description, :sku, :featured, :promo, :on_sale, :before_sale_price)
   end
 
 end
