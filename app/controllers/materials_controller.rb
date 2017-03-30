@@ -10,4 +10,10 @@ class MaterialsController < ApplicationController
     render json: @material
   end
 
+  private
+
+  def materials_params
+    params.permit(:id, :name)
+  end
+
 end
