@@ -1,3 +1,5 @@
 class MaterialsSerializer < ActiveModel::Serializer
-  attributes :name, :products
+  attributes :name
+  
+  has_many :products
 end
