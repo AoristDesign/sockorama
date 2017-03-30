@@ -13,7 +13,7 @@ class MaterialsController < ApplicationController
   private
 
   def materials_params
-    params.permit(:id, :name)
+    params.permit(:id, :name, :product_id)
   end
 
 end
