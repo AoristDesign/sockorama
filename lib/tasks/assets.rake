@@ -1,6 +1,5 @@
-Rake::Test['assets:precompile'].clear
 namespace :assets do
   task 'precompile' do
-    puts 'Not pre-compiling assets...'
+    puts 'heyo'
   end
 end
