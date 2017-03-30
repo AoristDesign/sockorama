@@ -46,6 +46,7 @@ header {
 
 .title {
     font-size: 75px;
+    font-family: 'Poiret One', cursive;
     letter-spacing: 1.4px;
     font-weight: 300;
 }
@@ -60,7 +61,7 @@ header {
 .carousel-cell {
     padding: 40px;
     width: 100%;
-    background-color: #3E000C;
+    /*background-color: #3E000C;*/
     background-size: cover;
     color: white;
     font-size: 50px;

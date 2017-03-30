@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { browserHistory, Link } from 'react-router'
+import { browserHistory } from 'react-router'
 
 class Nav extends Component {
     render() {
@@ -25,7 +25,7 @@ class Nav extends Component {
                 </div>
                 </section>
                 <header className="text-center">
-                <div className="title">SOCK |O| RAMA</div>
+                <div className="title">SOCKORAMA</div>
                 </header>
             </nav>
         );

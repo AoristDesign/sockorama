@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { browserHistory, Link } from 'react-router'
+// import { browserHistory } from 'react-router'
 
-import FilterAndSearch from './FilterAndSearch'
 import Products from './Products'
 import Nav from './Nav'
 import Search from './Search'
 import Footer from './Footer'
+// import Product from './Product'
 
 class App extends Component {
     constructor(props) {
@@ -13,17 +13,19 @@ class App extends Component {
         this.getProducts = this.getProducts.bind(this)
     
     this.state = {
-        products: []
+        products: [],
+        product: {}
     }
 }
     componentWillMount() {
-        this.getProducts
+        this.getProducts()
     }
 
     getProducts() {
-        fetch(window.apiHost + '/api/products')
-        .then(response => response.json)
+        fetch('https://enigmatic-waters-89034.herokuapp.com/api/products')
+        .then(response => response.json())
         .then(response => this.setState({products: response}))
+        // .then(response => console.log(response))
     }
 
         filterProducts(term) {
@@ -42,16 +44,9 @@ class App extends Component {
     return <div>
         <Nav/>
         <div className="container">
-        {/*<a onClick={() => browserHistory.push('/checkout')}>Checkout</a>
-        <Link to="/checkout">Checkout</Link>
-        <FilterAndSearch filterProducts={this.filterProducts}/> */}
-        <div>
-        {this.props.Products}
-        </div>
-
-
-      {this.props.children}
-      </div>
+        <Search/>
+        <Products products={this.state.products}/>
+       </div>
       <Footer/>
       </div>
     

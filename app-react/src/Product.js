@@ -1,14 +1,18 @@
 import React from 'react'
+import { browserHistory } from 'react-router'
 
 class Product extends React.Component {
-    componentWillMount() {
-        this.props.getProduct(this.props.params.productId)
-    }
+
     
     render() {
         return <div>
-            <h1>{this.props.product.name}</h1>
-            <button type="button" className="button" onClick={() => this.props.addToCart(this.props.product.id, this.props.product.name, 1)}>Add To Cart</button>
+            <div className="col-sm-4">
+                    <div className="card text-center">
+                        <img className="center-block img-responsive" src={this.props.image} alt="socks" onClick={() => browserHistory.push('/Product')}/>
+                        <span className="pull-left">{this.props.name}</span>
+                        <span className="pull-right">{this.props.price}</span>
+                    </div>
+            </div>
         </div>
     }
 }

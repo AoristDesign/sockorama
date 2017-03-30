@@ -1,39 +1,22 @@
 import React, { Component } from 'react';
-import Search from './Search'
-import { browserHistory, Link } from 'react-router'
+// import Search from './Search'
+import Product from './Product'
+// import { browserHistory, Link } from 'react-router'
 
 
 class Products extends Component {
   render() {
+    let products = this.props.products.map((product, key) => <Product key={key} {...product}/>)
+
 
     return ( 
         <div>
-        <Search/>
-            <div className="col-sm-4">
-                    <div className="card">
-                        <img className="center-block img-responsive" src="img/woolsock1.jpg" onClick={() => browserHistory.push('/Product')}/>
-                        <span className="text-left">The Sock Monkey</span>
-                        <span className="pull-right">$27.00</span>
-                    </div>
+            <div className="row">
+            {products}
             </div>
-            <div className="col-sm-4">
-                    <div className="card">
-                        <img className="center-block img-responsive" src="img/woolsock1.jpg"/>
-                        <span className="text-left">The Sock Monkey</span>
-                        <span className="pull-right">$27.00</span>
-                    </div>
-            </div>
-            <div className="col-sm-4">
-                    <div className="card">
-                        <img className="center-block img-responsive" src="img/woolsock1.jpg"/>
-                        <span className="text-left">The Sock Monkey</span>
-                        <span className="pull-right">$27.00</span>
-                    </div>
-            </div>
-                    
-                
             
-        </div>
+        </div> 
+        
      
     );
   }
