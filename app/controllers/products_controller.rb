@@ -14,8 +14,7 @@ class ProductsController < ApplicationController
 
   def product_params
     params.permit(:id, :model, :color, :style, :sizes, :inventories,
-                  :price, :image_url, :material_description,
-                  :description, :sku, :featured, :promo, :on_sale, :before_sale_price)
+                  :price, :sku)
   end
 
 end
