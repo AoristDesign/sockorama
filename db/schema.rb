@@ -11,10 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170328141143) do
 =======
 ActiveRecord::Schema.define(version: 20170330194125) do
 >>>>>>> 1b3b7c7a2ffc5f1182054df39ff20e34484d08b2
+=======
+ActiveRecord::Schema.define(version: 20170331142349) do
+>>>>>>> e4783802a9cd2c7e2e0961a1a130781732545deb
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -156,9 +160,16 @@ ActiveRecord::Schema.define(version: 20170330194125) do
     t.boolean  "featured",                default: false
     t.boolean  "promo",                   default: false
     t.boolean  "on_sale",                 default: false
-    t.integer  "before_sale_price_cents", default: 0
+    t.integer  "before_sale_price_cents"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+    t.string   "image"
+  end
+
+  create_table "registrations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "card_token"
   end
 
   create_table "sizes", force: :cascade do |t|
@@ -188,6 +199,7 @@ ActiveRecord::Schema.define(version: 20170330194125) do
 =======
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.boolean  "admin",            default: false
   end
 
   add_foreign_key "inventories", "products"
