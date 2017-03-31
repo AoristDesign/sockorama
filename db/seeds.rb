@@ -21,8 +21,9 @@ data.each do |product|
   materials |= ['Blended'] if materials.size > 1
   product[:price_cents] = str_to_cents.(product[:price])
   product = product.except(:sizes, :inventories, :materials, :price)
+  product[:image] = product[:image_url]
   product = product.keys.map{ |key| [key, product[key]] }.to_h
-  
+
   new_product = Product.new(product)
   inventories.each do |inventory|
     size = inventory.split(':')[0]
@@ -34,7 +35,7 @@ data.each do |product|
       product: new_product
     )
   end
-    
+
   materials.each do |mat|
     MaterialsProductsLinking.create!(
       material: Material.find_or_create_by!(name: mat),
@@ -43,5 +44,5 @@ data.each do |product|
   end
 
   new_product.save!
-    
+
 end
