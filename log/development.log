@@ -4488,3 +4488,486 @@ FOREIGN KEY ("admin_id")
   [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (12.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4687928857376618490);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (29.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangePriceInCents (20170330165123)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (26.6ms)[0m  [1m[35mALTER TABLE "products" RENAME COLUMN "price_in_cents" TO "price_cents"[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170330165123"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangePriceAtOrderInCents (20170330165154)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "order_lines" RENAME COLUMN "price_in_cents_at_order" TO "price_at_order_cents"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170330165154"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeBeforeSalePriceInCents (20170330172537)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "products" RENAME COLUMN "before_sale_price_in_cents" TO "before_sale_price_cents"[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170330172537"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeMaterialsId (20170330194115)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "materials_products_linkings" RENAME COLUMN "materials_id" TO "material_id"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mALTER INDEX "index_materials_products_linkings_on_materials_id" RENAME TO "index_materials_products_linkings_on_material_id"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170330194115"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeProductsId (20170330194125)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "materials_products_linkings" RENAME COLUMN "products_id" TO "product_id"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER INDEX "index_materials_products_linkings_on_products_id" RENAME TO "index_materials_products_linkings_on_product_id"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170330194125"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAdminToUsers (20170330222531)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.8ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170330222531"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4687928857376618490)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for ::1 at 2017-03-30 18:31:47 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb (4.5ms)
+Completed 200 OK in 16ms (Views: 12.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for ::1 at 2017-03-30 18:31:51 -0400
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "admins"[0m
+  [1m[36mAdmin Load (0.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" ORDER BY "admins"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "inventories"[0m
+  [1m[36mInventory Load (0.2ms)[0m  [1m[34mSELECT  "inventories".* FROM "inventories" ORDER BY "inventories"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "materials"[0m
+  [1m[36mMaterial Load (0.2ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" ORDER BY "materials"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "materials_products_linkings"[0m
+  [1m[36mMaterialsProductsLinking Load (0.2ms)[0m  [1m[34mSELECT  "materials_products_linkings".* FROM "materials_products_linkings" ORDER BY "materials_products_linkings"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "messages"[0m
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "order_lines"[0m
+  [1m[36mOrderLine Load (0.2ms)[0m  [1m[34mSELECT  "order_lines".* FROM "order_lines" ORDER BY "order_lines"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pages"[0m
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" ORDER BY "pages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "sizes"[0m
+  [1m[36mSize Load (0.2ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" ORDER BY "sizes"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (41.0ms)
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (2.0ms)
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_navigation.html.haml (7.7ms)
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (7.3ms)
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/pjax.html.haml (3.1ms)
+Completed 200 OK in 10702ms (Views: 9932.9ms | ActiveRecord: 41.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-30 19:49:54 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb (3.3ms)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for ::1 at 2017-03-30 19:49:57 -0400
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "admins"[0m
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" ORDER BY "admins"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "inventories"[0m
+  [1m[36mInventory Load (0.2ms)[0m  [1m[34mSELECT  "inventories".* FROM "inventories" ORDER BY "inventories"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "materials"[0m
+  [1m[36mMaterial Load (0.3ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" ORDER BY "materials"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "materials_products_linkings"[0m
+  [1m[36mMaterialsProductsLinking Load (0.2ms)[0m  [1m[34mSELECT  "materials_products_linkings".* FROM "materials_products_linkings" ORDER BY "materials_products_linkings"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "messages"[0m
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "order_lines"[0m
+  [1m[36mOrderLine Load (0.2ms)[0m  [1m[34mSELECT  "order_lines".* FROM "order_lines" ORDER BY "order_lines"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pages"[0m
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" ORDER BY "pages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "sizes"[0m
+  [1m[36mSize Load (0.2ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" ORDER BY "sizes"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (33.2ms)
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (2.0ms)
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_navigation.html.haml (7.6ms)
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (7.8ms)
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/pjax.html.haml (3.1ms)
+Completed 200 OK in 226ms (Views: 203.5ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/admin/product?_pjax=%5Bdata-pjax-container%5D" for ::1 at 2017-03-30 19:50:11 -0400
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"product"}
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY products.id desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (43.0ms)
+Completed 200 OK in 82ms (Views: 58.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/admin/material?_pjax=%5Bdata-pjax-container%5D" for ::1 at 2017-03-30 19:50:20 -0400
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"material"}
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mMaterial Load (0.9ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" ORDER BY materials.id desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "materials"[0m
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (42.3ms)
+Completed 200 OK in 70ms (Views: 55.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/admin/user?_pjax=%5Bdata-pjax-container%5D" for ::1 at 2017-03-30 19:50:27 -0400
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY users.id desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (45.0ms)
+Completed 200 OK in 79ms (Views: 59.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/size?_pjax=%5Bdata-pjax-container%5D" for ::1 at 2017-03-30 19:50:32 -0400
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"size"}
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mSize Load (1.0ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" ORDER BY sizes.id desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "sizes"[0m
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (39.8ms)
+Completed 200 OK in 68ms (Views: 53.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/admin/product?_pjax=%5Bdata-pjax-container%5D" for ::1 at 2017-03-30 19:50:49 -0400
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"product"}
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY products.id desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (37.4ms)
+Completed 200 OK in 60ms (Views: 53.2ms | ActiveRecord: 0.6ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mSize Load (0.5ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "S"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "sizes" ("size", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["size", "S"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "products" ("model", "description", "color", "style", "material_description", "image_url", "price_cents", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["model", "Painters"], ["description", "Inspired by the art of the world's great painters, these socks make a stylish statement."], ["color", "Various"], ["style", "Crew"], ["material_description", "Cotton/ Polyester / Polyurethane"], ["image_url", "http://ecx.images-amazon.com/images/I/91-M8oHN-TL._UX679_.jpg"], ["price_cents", 1500], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 20], ["size_id", 1], ["product_id", 1], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.2ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "M"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "sizes" ("size", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["size", "M"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 50], ["size_id", 2], ["product_id", 1], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.2ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "L"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "sizes" ("size", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["size", "L"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 100], ["size_id", 3], ["product_id", 1], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.2ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Cotton"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "materials" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Cotton"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 1], ["product_id", 1], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.2ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Polyester"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Polyester"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 2], ["product_id", 1], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.2ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Polyurethane"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Polyurethane"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 3], ["product_id", 1], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.1ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Blended"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "materials" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Blended"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 4], ["product_id", 1], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.2ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "M"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("model", "description", "color", "style", "material_description", "image_url", "price_cents", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["model", "ZigZags"], ["description", "A random selection from our assortment of _crazy_ sock styles."], ["color", "Various"], ["style", "Dress"], ["material_description", "70% acrylic 20% nylon 10% spandex"], ["image_url", "http://ecx.images-amazon.com/images/I/A1%2BfmYV54hL._UX679_.jpg"], ["price_cents", 2000], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 5], ["size_id", 2], ["product_id", 2], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.3ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "L"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 50], ["size_id", 3], ["product_id", 2], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.3ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "XL"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "sizes" ("size", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["size", "XL"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 15], ["size_id", 4], ["product_id", 2], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.2ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Acrylic"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "materials" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Acrylic"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 5], ["product_id", 2], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.2ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Nylon"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Nylon"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 6], ["product_id", 2], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.1ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Spandex"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Spandex"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 7], ["product_id", 2], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.1ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Blended"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 4], ["product_id", 2], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "S"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("model", "description", "color", "style", "material_description", "image_url", "price_cents", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["model", "Argyle"], ["description", "The classic argyle done in the Sock-o-rama style with an emphasis on quality materials."], ["color", "Various"], ["style", "Dress"], ["material_description", "70% acrylic 20% nylon 10% spandex"], ["image_url", "http://ecx.images-amazon.com/images/I/611Ov2M4vHL._AC_UL400_SR320,400_.jpg"], ["price_cents", 2500], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 5], ["size_id", 1], ["product_id", 3], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "M"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 65], ["size_id", 2], ["product_id", 3], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "XL"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 1], ["size_id", 4], ["product_id", 3], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.1ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Acrylic"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 5], ["product_id", 3], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.1ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Nylon"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 6], ["product_id", 3], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.1ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Spandex"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 7], ["product_id", 3], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.1ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Blended"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 4], ["product_id", 3], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "S"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("model", "description", "color", "style", "material_description", "image_url", "price_cents", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["model", "The Perusian"], ["description", "Made from the finest llama fur straight from Machu Pichu."], ["color", "Charcoal"], ["style", "Knee"], ["material_description", "Llama"], ["image_url", "http://www.llamafibercoop.com/Socks%20no%20pricing.jpg"], ["price_cents", 4500], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 2], ["size_id", 1], ["product_id", 4], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "L"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 67], ["size_id", 3], ["product_id", 4], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "XL"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 12], ["size_id", 4], ["product_id", 4], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.1ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Llama"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Llama"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 8], ["product_id", 4], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "L"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("model", "description", "color", "style", "material_description", "image_url", "price_cents", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["model", "The Furry"], ["description", "Beloved by hikers the world over, our furriest socks wick away moisture and help prevent blisters."], ["color", "Brown"], ["style", "Knee"], ["material_description", "Alpaca"], ["image_url", "http://5c3ae8def513233997a7-e87978aaae5cf97349d88697fd53e4c9.r77.cf1.rackcdn.com/21025_300.jpg"], ["price_cents", 4000], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 25], ["size_id", 3], ["product_id", 5], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "XL"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 15], ["size_id", 4], ["product_id", 5], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "XXL"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "sizes" ("size", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["size", "XXL"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 1], ["size_id", 5], ["product_id", 5], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.1ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Alpaca"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Alpaca"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 9], ["product_id", 5], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "S"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("model", "description", "color", "style", "material_description", "image_url", "price_cents", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["model", "The Refined"], ["description", "Stuck in dress shoes all day and still want your toes to stay warm? These are just the things for you."], ["color", "Black"], ["style", "Crew"], ["material_description", "Alpaca"], ["image_url", "http://www.mountaindreamalpacas.com/images/Mens%20Outdoor%20Sock.JPG"], ["price_cents", 3500], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 5], ["size_id", 1], ["product_id", 6], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "M"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 17], ["size_id", 2], ["product_id", 6], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "L"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 23], ["size_id", 3], ["product_id", 6], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.1ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Alpaca"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 9], ["product_id", 6], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "L"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("model", "description", "color", "style", "material_description", "image_url", "price_cents", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["model", "The Mountaineer"], ["description", "Not just a college mascot, our Mountaineer socks can keep your feet toasty even while approaching K2's peak."], ["color", "Grey"], ["style", "Crew"], ["material_description", "Alpaca"], ["image_url", "http://cdn.shopify.com/s/files/1/0614/7909/products/ChoiceAlpacaSocksStanding_large.jpg?v=1408256411"], ["price_cents", 4500], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 50], ["size_id", 3], ["product_id", 7], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "XL"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 23], ["size_id", 4], ["product_id", 7], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "XXXL"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "sizes" ("size", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["size", "XXXL"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 1], ["size_id", 6], ["product_id", 7], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.1ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Alpaca"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 9], ["product_id", 7], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "S"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("model", "description", "color", "style", "material_description", "image_url", "price_cents", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["model", "The Sock Monkey"], ["description", "Beloved by children everywhere, but just a great on your feet"], ["color", "Grey"], ["style", "Crew"], ["material_description", "Wool"], ["image_url", "https://dressedfordinner.files.wordpress.com/2010/01/dscf0200.jpg"], ["price_cents", 2700], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 23], ["size_id", 1], ["product_id", 8], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "M"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 12], ["size_id", 2], ["product_id", 8], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "L"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 34], ["size_id", 3], ["product_id", 8], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.1ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Wool"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Wool"], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 10], ["product_id", 8], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "M"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "products" ("model", "description", "color", "style", "material_description", "image_url", "price_cents", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["model", "The Cable"], ["description", "A classic style and super-comfy."], ["color", "Cream"], ["style", "Knee"], ["material_description", "Wool"], ["image_url", "https://s-media-cache-ak0.pinimg.com/736x/52/d0/24/52d0240083f053165a12480eecb46fb2.jpg"], ["price_cents", 3300], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 23], ["size_id", 2], ["product_id", 9], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "L"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 7], ["size_id", 3], ["product_id", 9], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSize Load (0.1ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."size" = $1 LIMIT $2[0m  [["size", "XXL"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "inventories" ("stock", "size_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["stock", 3], ["size_id", 5], ["product_id", 9], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mMaterial Load (0.1ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" WHERE "materials"."name" = $1 LIMIT $2[0m  [["name", "Wool"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "materials_products_linkings" ("material_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["material_id", 10], ["product_id", 9], ["created_at", 2017-03-30 23:51:34 UTC], ["updated_at", 2017-03-30 23:51:34 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2017-03-30 19:51:52 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb (4.1ms)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for ::1 at 2017-03-30 19:51:55 -0400
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "admins"[0m
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" ORDER BY "admins"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "inventories"[0m
+  [1m[36mInventory Load (0.2ms)[0m  [1m[34mSELECT  "inventories".* FROM "inventories" ORDER BY "inventories"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "materials"[0m
+  [1m[36mMaterial Load (0.2ms)[0m  [1m[34mSELECT  "materials".* FROM "materials" ORDER BY "materials"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "materials_products_linkings"[0m
+  [1m[36mMaterialsProductsLinking Load (0.3ms)[0m  [1m[34mSELECT  "materials_products_linkings".* FROM "materials_products_linkings" ORDER BY "materials_products_linkings"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "messages"[0m
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "orders"[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "order_lines"[0m
+  [1m[36mOrderLine Load (0.3ms)[0m  [1m[34mSELECT  "order_lines".* FROM "order_lines" ORDER BY "order_lines"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "pages"[0m
+  [1m[36mPage Load (0.2ms)[0m  [1m[34mSELECT  "pages".* FROM "pages" ORDER BY "pages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "sizes"[0m
+  [1m[36mSize Load (0.2ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" ORDER BY "sizes"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (52.4ms)
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (2.9ms)
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_navigation.html.haml (10.1ms)
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (8.4ms)
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/layouts/rails_admin/pjax.html.haml (5.1ms)
+Completed 200 OK in 1431ms (Views: 645.5ms | ActiveRecord: 34.6ms)
+
+
+Started GET "/admin/product?_pjax=%5Bdata-pjax-container%5D" for ::1 at 2017-03-30 19:51:59 -0400
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"product"}
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY products.id desc LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "products"[0m
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/rails_admin-1.1.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (133.2ms)
+Completed 200 OK in 170ms (Views: 149.2ms | ActiveRecord: 0.8ms)
+
+
