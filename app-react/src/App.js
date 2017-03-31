@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-// import { browserHistory } from 'react-router'
 
-import Products from './Products'
 import Nav from './Nav'
-import Search from './Search'
 import Footer from './Footer'
-// import Product from './Product'
 
 class App extends Component {
     constructor(props) {
         super(props)
         this.getProducts = this.getProducts.bind(this)
+        // this.getProduct = this.getProduct.bind(this)
     
     this.state = {
         products: [],
@@ -27,6 +24,7 @@ class App extends Component {
         .then(response => this.setState({products: response}))
         // .then(response => console.log(response))
     }
+    
 
         filterProducts(term) {
             let products = this.state.products
@@ -38,18 +36,15 @@ class App extends Component {
                 products: products
             })
         }
+        
     
 
   render() {
     return <div>
         <Nav/>
-        <div className="container">
-        <Search/>
-        <Products products={this.state.products}/>
-       </div>
-      <Footer/>
-      </div>
-    
+            {this.props.children}
+        <Footer/>
+    </div>
   }
 }
 

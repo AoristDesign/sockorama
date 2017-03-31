@@ -8,12 +8,12 @@ class Nav extends Component {
                 <div className="container">
                     <div className="row nav">
                         <div className="col-sm-6 text-left nav-left">
-                            <a href="#" onClick={() => browserHistory.push('/Products')}>SOCKORAMA</a>
+                            <a href="#" onClick={() => browserHistory.push('/')}>SOCKORAMA</a>
                             <a href="#" onClick={() => window.$('#signinModal').modal('toggle')}>Sign In</a>
                         </div>
                         <div className="col-sm-6 text-right nav-right">
-                            <a href="#" onClick={() => browserHistory.push('/About')}>About</a>
-                            <a href="#" onClick={() => browserHistory.push('/Cart')}>Cart</a>
+                            <a href="#" onClick={() => browserHistory.push('/about')}>About</a>
+                            <a href="#" onClick={() => browserHistory.push('/cart')}>Cart</a>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@ class Nav extends Component {
                 </div>
                 </section>
                 <header className="text-center">
-                <div className="title">SOCKORAMA</div>
+                <h1 className="title">SOCKORAMA</h1>
                 </header>
             </nav>
         );

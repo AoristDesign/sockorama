@@ -11,7 +11,6 @@ class Cart extends Component {
             <div className="col-sm-6 col-sm-offset-2">
                     <hr/>
                     <div className="card text-center">
-                        <p>content from javascript here</p>
                     </div>
                     <a href="?">Delete</a>
                     <hr/>

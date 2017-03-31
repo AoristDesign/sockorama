@@ -1,4 +1,6 @@
 class OrderLine < ApplicationRecord
-  belongs_to :orders
-  belongs_to :products
+  belongs_to :order
+  belongs_to :inventory
+  
+  monetize :price_at_order_cents, allow_nil: true
 end

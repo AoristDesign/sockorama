@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/ubuntu/workspace/db/seeds.rb @ line 17 :
+
+    [1;34m12[0m:   sizes = product[[33m:sizes[0m].delete([31m[1;31m'[0m[31m [1;31m'[0m[31m[0m).upcase.split([31m[1;31m'[0m[31m,[1;31m'[0m[31m[0m)
+    [1;34m13[0m:   inventories = product[[33m:inventories[0m].delete([31m[1;31m'[0m[31m [1;31m'[0m[31m[0m).upcase.split([31m[1;31m'[0m[31m,[1;31m'[0m[31m[0m)
+    [1;34m14[0m:   materials = product[[33m:materials[0m].capitalize.split([31m[1;31m'[0m[31m,[1;31m'[0m[31m[0m).map(&[33m:strip[0m)
+    [1;34m15[0m:   product = product.except([33m:sizes[0m, [33m:inventories[0m, [33m:materials[0m)
+    [1;34m16[0m:   binding.pry
+ => [1;34m17[0m:   product_attributes = product.keys.map{ |key| [key, product[key]] }.to_h
+    [1;34m18[0m:   
+    [1;34m19[0m:   new_product = [1;34;4mProduct[0m.new(
+    [1;34m20[0m:     [35mmodel[0m: product[[33m:model[0m],
+    [1;34m21[0m:     [35mcolor[0m: product[[33m:color[0m],
+    [1;34m22[0m:     [35mstyle[0m: product[[33m:style[0m]
+
