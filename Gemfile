@@ -51,6 +51,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'figaro'
+gem 'stripe'
 
 # admin
 gem 'rails_admin', '1.1.0'
