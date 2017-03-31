@@ -28,8 +28,6 @@ gem 'faker'
 # gem 'simple_form'
 # gem 'ransack'
 # gem 'pg_search'
-# gem 'rails_admin'
-# gem 'stripe'
 gem 'rack-cors'
 # gem 'rails_12factor', group: :production
 
@@ -52,6 +50,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'figaro'
 gem 'stripe'
+gem 'sendgrid-ruby'
 
 # admin
 gem 'rails_admin', '1.1.0'
