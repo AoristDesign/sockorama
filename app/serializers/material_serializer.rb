@@ -1,4 +1,4 @@
-class MaterialsSerializer < ActiveModel::Serializer
+class MaterialSerializer < ActiveModel::Serializer
   attributes :name
   
   has_many :materials_products_linkings
