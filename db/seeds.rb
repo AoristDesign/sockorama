@@ -2,7 +2,6 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 require 'csv'
-require 'json'
 
 file = File.open(File.join(Rails.root + 'db/data_src.csv'))
 csv  = CSV.new(file, headers: true, header_converters: :symbol)
@@ -10,7 +9,7 @@ data = csv.to_a.map(&:to_hash)
 
 str_to_cents = ->(str) {
   cents = str.gsub(/\D/,'').to_i
-  (cents *= 100 unless str.include? '.') || cents
+  (cents if str.include? '.') || cents * 100
 }
 
 data.each do |product|
