@@ -5000,3 +5000,122 @@ Migrating to AddStripeCardTokenToRegistration (20170331142349)
   [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4687928857376618490)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/api/products" for ::1 at 2017-03-31 12:26:52 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as */*
+  Parameters: {"product"=>{}}
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mInventory Load (0.5ms)[0m  [1m[34mSELECT "inventories".* FROM "inventories" WHERE "inventories"."product_id" = $1[0m  [["product_id", 1]]
+  [1m[36mSize Load (0.3ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+No serializer found for resource: #<Product id: 1, model: "Painters", sku: nil, description: "Inspired by the art of the world's great painters,...", color: "Various", style: "Crew", genderism: "unisex", material_description: "Cotton/ Polyester / Polyurethane", image_url: "http://ecx.images-amazon.com/images/I/91-M8oHN-TL....", price_cents: 1500, featured: false, promo: false, on_sale: false, before_sale_price_cents: nil, created_at: "2017-03-30 23:51:34", updated_at: "2017-03-30 23:51:34", image: nil>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Product::ActiveRecord_Relation (3.76ms)
+Completed 200 OK in 817130ms (Views: 21.0ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/api/products" for ::1 at 2017-03-31 12:40:34 -0400
+Processing by ProductsController#index as */*
+  Parameters: {"product"=>{}}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+No serializer found for resource: #<Product id: 1, model: "Painters", sku: nil, description: "Inspired by the art of the world's great painters,...", color: "Various", style: "Crew", genderism: "unisex", material_description: "Cotton/ Polyester / Polyurethane", image_url: "http://ecx.images-amazon.com/images/I/91-M8oHN-TL....", price_cents: 1500, featured: false, promo: false, on_sale: false, before_sale_price_cents: nil, created_at: "2017-03-30 23:51:34", updated_at: "2017-03-30 23:51:34", image: nil>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Product::ActiveRecord_Relation (7.03ms)
+Completed 200 OK in 33ms (Views: 30.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/products/1" for ::1 at 2017-03-31 12:40:41 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1", "product"=>{}}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mInventory Load (0.3ms)[0m  [1m[34mSELECT "inventories".* FROM "inventories" WHERE "inventories"."product_id" = $1[0m  [["product_id", 1]]
+  [1m[36mSize Load (0.2ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Product (1.09ms)
+Completed 500 Internal Server Error in 45249ms (ActiveRecord: 5.3ms)
+
+
+  
+TypeError (#<Inventory id: 1, stock: 20, size_id: 1, product_id: 1, created_at: "2017-03-30 23:51:34", updated_at: "2017-03-30 23:51:34"> is not a symbol nor a string):
+  
+app/controllers/products_controller.rb:11:in `show'
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.6ms)
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (13.5ms)
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (105.3ms)
+Started GET "/api/products/1" for ::1 at 2017-03-31 12:42:13 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1", "product"=>{}}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mInventory Load (0.2ms)[0m  [1m[34mSELECT "inventories".* FROM "inventories" WHERE "inventories"."product_id" = $1[0m  [["product_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Product (15.63ms)
+Completed 200 OK in 6705ms (Views: 18.9ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/api/products/1" for ::1 at 2017-03-31 12:42:54 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1", "product"=>{}}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mSize Load (0.5ms)[0m  [1m[34mSELECT "sizes".* FROM "sizes" INNER JOIN "inventories" ON "sizes"."id" = "inventories"."size_id" WHERE "inventories"."product_id" = $1[0m  [["product_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Product (31.72ms)
+Completed 200 OK in 53ms (Views: 34.3ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/api/products/1" for ::1 at 2017-03-31 12:45:56 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1", "product"=>{}}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mInventory Load (0.3ms)[0m  [1m[34mSELECT "inventories".* FROM "inventories" WHERE "inventories"."product_id" = $1[0m  [["product_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Product (20.93ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 6.5ms)
+
+
+  
+NoMethodError (undefined method `sizes' for #<Inventory:0x007fabcc0507d8>
+Did you mean?  size
+               size=):
+  
+app/controllers/products_controller.rb:10:in `show'
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.5ms)
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (87.9ms)
+Started GET "/api/products/1" for ::1 at 2017-03-31 12:47:05 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1", "product"=>{}}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mInventory Load (0.4ms)[0m  [1m[34mSELECT "inventories".* FROM "inventories" WHERE "inventories"."product_id" = $1[0m  [["product_id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Product (20.98ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 5.4ms)
+
+
+  
+NoMethodError (undefined method `sizes' for #<Inventory:0x007fabc369c5a0>
+Did you mean?  size
+               size=):
+  
+app/controllers/products_controller.rb:10:in `show'
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/admin/.rbenv/versions/2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (75.1ms)
+Started GET "/api/products/1" for ::1 at 2017-03-31 12:47:33 -0400
+Processing by ProductsController#show as */*
+  Parameters: {"id"=>"1", "product"=>{}}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mInventory Load (0.2ms)[0m  [1m[34mSELECT "inventories".* FROM "inventories" WHERE "inventories"."product_id" = $1[0m  [["product_id", 1]]
+[active_model_serializers]   [1m[36mSize Load (0.3ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mSize Load (0.2ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mSize Load (0.2ms)[0m  [1m[34mSELECT  "sizes".* FROM "sizes" WHERE "sizes"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Product (32.29ms)
+Completed 200 OK in 54ms (Views: 34.1ms | ActiveRecord: 8.2ms)
+
+
