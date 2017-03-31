@@ -20,7 +20,7 @@ data.each do |product|
   materials |= ['Blended'] if materials.size > 1
   product[:price_cents] = str_to_cents.(product[:price])
   product = product.except(:sizes, :inventories, :materials, :price)
-  product[:image] = product[:image_url]
+  product[:remote_image_url] = product[:image_url]
   product = product.keys.map{ |key| [key, product[key]] }.to_h
 
   new_product = Product.new(product)
