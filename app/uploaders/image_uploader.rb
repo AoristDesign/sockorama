@@ -6,7 +6,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
 
   process :convert => 'png'
-  process :tags => ['gallery_project']
+  process :tags => ['sockorama_project']
   # Choose what kind of storage to use for this uploader:
   # storage :file
   # storage :fog
