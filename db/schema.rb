@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330194125) do
+ActiveRecord::Schema.define(version: 20170330222531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20170330194125) do
     t.boolean  "featured",                default: false
     t.boolean  "promo",                   default: false
     t.boolean  "on_sale",                 default: false
-    t.integer  "before_sale_price_cents", default: 0
+    t.integer  "before_sale_price_cents"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
   end
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 20170330194125) do
     t.string   "shipping_address"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.boolean  "admin",            default: false
   end
 
   add_foreign_key "inventories", "products"
